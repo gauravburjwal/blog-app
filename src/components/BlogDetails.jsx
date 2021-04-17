@@ -4,12 +4,12 @@ import useFetch from './../hooks/useFetch';
 const BlogDetails = () => {
     const { id } = useParams();
     const { data: blog, isPending, error } = useFetch(
-        `http://localhost:8000/blogs/${id}`
+        `${process.env.REACT_APP_BLOGS_URL}${id}`
     );
     const history = useHistory();
 
     const handleDelete = () => {
-        fetch(`http://localhost:8000/blogs/${id}`, {
+        fetch(`${process.env.REACT_APP_BLOGS_URL}${id}`, {
             method: 'DELETE',
         }).then(() => {
             history.push('/');

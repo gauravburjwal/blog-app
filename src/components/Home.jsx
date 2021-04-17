@@ -3,7 +3,7 @@ import useFetch from './../hooks/useFetch';
 
 const Home = () => {
     const { data: blogs, isPending, error } = useFetch(
-        'http://localhost:8000/blogs'
+        process.env.REACT_APP_BLOGS_URL
     );
 
     return (
